@@ -30,8 +30,17 @@ export const BASE_SC: KubeStorageClass = {
   },
   provisioner: 'csi.test',
   reclaimPolicy: 'Delete',
-  allowVolumeExpansion: true,
   volumeBindingMode: 'WaitForFirstConsumer',
+};
+
+export const BASE_SC_EXPLICIT_EXPANDABLE: KubeStorageClass = {
+  ...BASE_SC,
+  allowVolumeExpansion: true,
+};
+
+export const BASE_SC_EXPLICIT_NON_EXPANDABLE: KubeStorageClass = {
+  ...BASE_SC,
+  allowVolumeExpansion: false,
 };
 
 export const BASE_PVC: KubePersistentVolumeClaim = {
